@@ -1,0 +1,67 @@
+.teqniques {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  div {
+    margin-top: 15px;
+  }
+  p {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+  select {
+    width: 20vw;
+  }
+}
+.formData {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+
+}
+.select_car {
+  margin: 0 auto;
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+
+}
+.add_price {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .inp_size {
+    width: 40%;
+  }
+}
+.add_description {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inp_size {
+  display: flex;
+  align-items: center;
+}
+.add_photo {
+  text-align: center;
+  p {
+    text-align: center;
+  }
+}
+.addann{
+  text-align: center;
+  input{
+    background: #1F1F1F;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 200%;
+  }
+}

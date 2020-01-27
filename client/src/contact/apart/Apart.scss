@@ -1,0 +1,115 @@
+.apart_general {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.apart_details {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  .parts_title {
+    h2 {
+      font-size: 35px;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+  }
+  .add_as_favorite {
+      button {
+        background: white;
+        padding: 4px 7px;
+        border: 1px solid rgba(0, 0, 0, .2);
+        border-radius: 5px;
+        letter-spacing: 2px;
+        color: #2aa1c0;
+
+        i {
+          margin: 0 3px;
+        }
+      }
+    span {
+      margin-left: 15px;
+    }
+    .add_note {
+         margin-left: 10px;
+       }
+  }
+  .slider {
+     margin: 40px 0;
+   }
+
+}
+.apart_info {
+  flex: 1;
+  margin-left: 10%;
+  .price {
+
+  }
+  .number {
+    background: #0097ff;
+    width: 100%;
+    margin-top: 75px;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 5px;
+    &:hover {
+      background: #0587ff;
+    }
+    h4 {
+      color: white;
+    }
+  }
+  h2 {
+     font-size: 35px;
+     font-weight: 400;
+     letter-spacing: 2px;
+   }
+  .message {
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+    .send_message {
+      font-size: 20px;
+    }
+  }
+}
+.car_info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  .img_company {
+    width: 30%;
+    border-radius: 50%;
+    img {
+      width: 100%;
+    }
+  }
+  .title {
+    width: 30%;
+    b {
+      color: #2aa1c0;
+    }
+  }
+
+}
+.buttons {
+   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+   button {
+     width: 100%;
+     background: white;
+     padding: 3px 0;
+     margin: 5px 0;
+     border-radius: 3px;
+     border: 1px solid rgba(0, 0, 0, .4);
+   }
+ }
+.aoao{
+  margin-top: 50px;
+}

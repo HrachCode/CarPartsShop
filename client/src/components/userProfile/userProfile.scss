@@ -1,0 +1,95 @@
+.MuiTab-wrapper{
+    font-size: 16px;
+    font-weight: bolder;
+    color:#FFAA00;
+}
+.PrivateTabIndicator-colorPrimary-63{
+    background-color: #FFAA00 !important;
+}
+.PrivateTabIndicator-colorPrimary-170{
+    background-color: #FFAA00 !important;
+}
+.PrivateTabIndicator-colorPrimary-277{
+    background-color: #FFAA00 !important;
+}
+.PrivateTabIndicator-colorPrimary{
+    span{
+        background-color: #FFAA00 !important;
+    }
+}
+.MuiAppBar-colorDefault{
+    background:white !important;
+    box-shadow: none !important;
+}
+.your{
+    box-shadow: 0 0 8px 0  rgba(0,0,0,.4);
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    margin-bottom: 25px;
+    justify-content: space-between;
+    width: 60%;
+    button{
+        margin-top: 40px;
+        height: 2%;
+        font-size: 15px;
+        padding: 5px;
+        letter-spacing: 2px;
+        font-weight: bolder;
+        border: none;
+        border-radius: 5px;
+        background-color: white;
+
+    }
+    .btnedita{
+        font-size: larger;
+        color: #42ec0a;
+
+    }
+   
+    img{
+        width: 25%;
+        height: 180px;
+    }
+}
+.antitle{
+    margin-left: 50px;
+    flex: 1;
+    p{
+        font-size: 20px;
+        font-weight: bolder;
+    }
+    span{
+        font-size: 15px;
+    }
+}
+.imgan{
+    margin-right: 20px;
+}
+.ann{
+    margin-top: 50px;
+}
+.aria > .MuiSvgIcon-root{
+    font-size: 30px !important;
+}
+
+.yor > .MuiSvgIcon-root{
+    font-size: xx-large !important;
+}
+.notyet{
+    font-size: 30px;
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+    margin-top: 80px;
+    box-shadow: 0 0 10px 0;
+    padding: 10px 0;
+    border-radius: 10px;
+    p{
+        color:#FFAA00;
+        text-transform: uppercase;
+        font-weight: bolder;
+        margin-top: 10px;
+    }
+}

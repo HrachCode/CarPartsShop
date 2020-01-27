@@ -1,0 +1,35 @@
+
+.sparepart {
+  width: 100%;
+  background: #f7f7f7;
+  align-items: start;
+  border:1px solid rgba(191,191,191,.4);
+  .part_flex {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0px auto;
+  }
+  .containerpart {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    .spare_part {
+      display: flex;
+      margin-top: 20px;
+      width: 50%;
+      ul {
+        margin-left: 15px;
+        li {
+          list-style: none;
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
