@@ -63,11 +63,12 @@ console.log(arr);
                     <Route exact path="/admin"  render = {()=><Admin  adminExit={adminExit} />} />
                     <Route path='/about' component={About} />
                     <Route path='/my'  render = {()=><UserProfile  shopProduct={shopProduct.itemsArray } />}/>
-                    <Route exact path='/mens' render = {()=><Mens setitem={setitem} />} />
+                    <Route path='/my/:aparts'  component={Apart} />
+                    <Route exact path='/cars' render = {()=><Mens setitem={setitem} />} />
                     {/*<Route exact path={'/mens/:frommens'}  component={Newfilter}/>*/}
                     <Route exact path='/trucs' render = {()=><Womens setitem={setitem} />}  />
                     <Route exact path={'/trucs/:aparts'} component={Apart} />
-                    <Route exact path={'/mens/:aparts'} component={Apart}/>
+                    <Route exact path={'/cars/:aparts'} component={Apart}/>
                     {/*<Route exact path='/womens/:fromwomens'  component={Newfilter} />*/}
                     <Route path='/contact' component={Contact} />
                     <Route path='/shop' render={()=><Shop  key={shopProduct.key + 1} deletItem={deletItem}/>}/>

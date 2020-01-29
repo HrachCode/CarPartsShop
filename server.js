@@ -36,7 +36,7 @@ mongoose
   
 app.use(cors())
 app.use(morgan('dev'));
-app.use('/mens',Filters)
+app.use('/cars',Filters)
 app.use('/trucs',womenFlter)
 app.use('/users', Users)
 app.use('/stok', Goods)

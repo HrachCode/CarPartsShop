@@ -69,7 +69,7 @@ class Navbar extends Component{
                                          http://localhost:3000/mens   <NavLink  to={'/about'} >About</NavLink>
                                         </li>
                                         <li  className={'limens1 navulli'}>
-                                            <NavLink to={'/mens'} >Cars</NavLink>
+                                            <NavLink to={'/cars'} >Cars</NavLink>
                                             <div className={'menshover1'}>
 
                                             </div>
@@ -97,7 +97,7 @@ http://localhost:3000/mens
                                 <NavLink  to={'/about'} >About</NavLink>
                             </li>
                             <li  className={'limens navulli noneLi'}>
-                                <NavLink   to={'/mens'} >Cars</NavLink>
+                                <NavLink   to={'/cars'} >Cars</NavLink>
                                 <div className={'menshover'}>
 
                                 </div>

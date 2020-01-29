@@ -30,7 +30,9 @@ import {withRouter} from 'react-router-dom'
     componentDidMount(){
         setProduct(`stok/menproduct`,"GET")
             .then(body =>{
-                console.log(body);
+
+
+              
                 
                 this.setState({products:body},)
                 this.getProduct(body)
@@ -58,18 +60,30 @@ import {withRouter} from 'react-router-dom'
      showaparts = item => {
         console.log(this.props.history);
         
-        this.props.history.push(`/mens/${item._id}`)
+        this.props.history.push(`/cars/${item._id}`)
     }
     findAndFilter = (data)=>{
         if(!data.carType){
           return  alert('chois a Car Name ')
         }else {
-            return axios.post('filter/productid',data)  
+            return axios.post('filter/productid',data)
+            .then(data=>{
+                if(data.data.length === 0){
+                    return alert('not finde')
+                }
+            
+               this.setState({products:data.data})
+                
+            }).catch(err=>{
+                console.log(err);
+                
+            })   
         }         
                 
     }
 
     render() {
+     
       
         if(this.state.loading) {
             return <Spiner />

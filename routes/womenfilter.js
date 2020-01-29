@@ -45,4 +45,14 @@ filter.post('/productid',(req,res)=>{
     }    
   })
 })
+filter.post('/prodId',(req,res)=>{
+  avds.findById(req.body.id)
+  .then(data=>{
+    res.status(200).json(data)
+    
+  }).catch(err=>{
+    res.status(400).json({message:'note found'})
+  })
+  
+})
 module.exports = filter

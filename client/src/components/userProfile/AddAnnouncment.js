@@ -388,6 +388,9 @@ export default class AddAnnouncment extends Component{
                             }):null}
                         </select>
                     </div>
+
+
+                    
                     <div >
                         <p>Select Model</p>
                         <select className="form-control" onChange={this.btnModel.bind(this)} name="" id="" placeholder='Select Model '>

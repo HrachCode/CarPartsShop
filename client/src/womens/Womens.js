@@ -59,7 +59,7 @@ class Womens extends Component {
     showaparts = item => {
         console.log(this.props.history);
         
-        this.props.history.push(`/womens/${item._id}`)
+        this.props.history.push(`/trucs/${item._id}`)
     }
     render() {
         if(this.state.loading) {

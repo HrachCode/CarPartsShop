@@ -2,7 +2,7 @@ import React from 'react'
 import './Apart.scss'
 import Slider from './slider/Awesome'
 import axios from 'axios'
-import Spiner from "../../components/Spiner/Spiner";
+import Spiner from "../../components/Spiner/Spiner"
 
 
 export default class Apart extends React.Component{
@@ -14,7 +14,7 @@ export default class Apart extends React.Component{
     
     
         componentDidMount(){
-             axios.post('prodid',{id:this.props.match.params.aparts})
+             axios.post('prodId',{id:this.props.match.params.aparts})
              .then(data=>{
                if(data.data.length > 0){
               

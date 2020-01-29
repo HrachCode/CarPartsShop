@@ -32,25 +32,83 @@ filter.post('/cartVew',(req,res)=>{
 
 
 filter.post('/productid',(req,res)=>{
-    if(!req.body.carModel){
-      console.log(req.body.carType);
-      
-      avds.find({carType:req.body.carType}).then(data=>{
-      
-        
-        res.status(200).json(data)
+ console.log(req.body);
+ const r = req.body
+    if(Object.keys(req.body).length === 1){
+            avds.find({carType:req.body.carType}).then(data=>{
+             res.status(200).json(data)
       }).catch(err=>{
         if(err){
-          req.status(400).json({message:'note find'})
+         return req.status(400).json({message:'note find'})
         }
         
       })
+      
+    }else if(Object.keys(req.body).length === 2){
+      
+      avds.aggregate([
+        {
+          '$match': {
+            'carType': r.carType,
+            'carModel': r.carModel
+          }
+        }
+      ]).then(data=>{
+        res.status(200).json(data)
+        
+      }).catch(err=>{
+        if(err){
+         return req.status(400).json({message:'note find'})
+        }
+        })
+      
+    }else if(Object.keys(req.body).length === 3){   
+      
+      avds.aggregate([
+        {
+            '$match': {
+                'carType': r.carType, 
+                'carModel': r.carModel, 
+                'carYear': JSON.stringify(r.carYear)
+            }
+        }, 
+    ]).then(data=>{
+        
+        res.status(200).json(data)       
+      }).catch(err=>{
+        if(err){
+         return req.status(400).json({message:'note find'})
+        }
+        })
+      
+    }
+    else if(Object.keys(req.body).length === 4){   
+      
+      avds.aggregate([
+        {
+            '$match': {
+                'carType': r.carType, 
+                'carModel': r.carModel, 
+                'carYear': JSON.stringify(r.carYear),
+                'carMator': JSON.stringify(r.carMator)
+            }
+        }, 
+    ]).then(data=>{
+        console.log(data);
+        
+        res.status(200).json(data)
+        
+      }).catch(err=>{
+        if(err){
+         return req.status(400).json({message:'note find'})
+        }
+        })
       
     }
  
 })
 
-filter.post('/prodid',(req,res)=>{
+filter.post('/prodId',(req,res)=>{
   avds.findById(req.body.id)
   .then(data=>{
     res.status(200).json(data)

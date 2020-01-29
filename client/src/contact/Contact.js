@@ -1,14 +1,12 @@
 import React from 'react'
 import Wear from "../wear/Wear";
 import './Contact.scss'
-// import SpareParts from "../components/spareparts/SpareParts";
-import Apart from './apart/Apart'
 
 export default ()=>{
     return(
         <div>
             <Wear wear={'Contact'}/>
-            <Apart />
+           
 
             <div className={"contactTopDiv"}>
 

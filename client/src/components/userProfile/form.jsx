@@ -98,7 +98,7 @@ export default function ScrollableTabsButtonAuto() {
   if(loading){
     return <Spiner />
   }
-  console.log(usr)
+ 
   return (
 
 
@@ -126,7 +126,7 @@ export default function ScrollableTabsButtonAuto() {
                    <p>You have not add announcment yet {tokens}</p>
                  </div>: user.user.map((e,i)=>{
                    return(
-                       <Announcment key={i} data={e} deletItem={deletItem}/>
+                       <Announcment key={i} id={e._id} data={e} deletItem={deletItem}/>
                    )
                  })}
                </div>
