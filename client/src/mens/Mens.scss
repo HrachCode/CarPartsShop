@@ -34,3 +34,21 @@
   font-size: 18px;
   margin-left: 20px;
 }
+.adver{
+  .indiv{
+    justify-content: left;
+      img{
+        width: 25%;
+        height: 180px;
+      }
+  }
+  .mej{
+    margin-left: 20px;
+    .adstitle{
+        p{
+          font-size: 20px;
+          font-weight: bolder;
+        }
+  }
+}
+}

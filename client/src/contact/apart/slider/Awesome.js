@@ -7,9 +7,10 @@ import pic from '../../../empty/emptydatark.jpg'
 export default class DemoCarousel extends Component {
     render() {
         return (
-            <Carousel showThumbs={true} className={'carouselnik'}>
+            <div className='allslider'>
+ <Carousel showThumbs={true} >
                {this.props.img.length === 0 ?
-               <div>
+               <div className='bigpicture'>
                    <img src={pic} alt=""/>
                </div> : this.props.img.lenght === 1 ?
                        <div>
@@ -25,6 +26,9 @@ export default class DemoCarousel extends Component {
                        })
                }
             </Carousel>
+            </div>
+
+           
         );
     }
 }
