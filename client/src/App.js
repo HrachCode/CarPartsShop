@@ -65,8 +65,8 @@ console.log(arr);
                     <Route path='/my'  render = {()=><UserProfile  shopProduct={shopProduct.itemsArray } />}/>
                     <Route exact path='/mens' render = {()=><Mens setitem={setitem} />} />
                     {/*<Route exact path={'/mens/:frommens'}  component={Newfilter}/>*/}
-                    <Route exact path='/womens' render = {()=><Womens setitem={setitem} />}  />
-                    <Route exact path={'/womens/:aparts'} component={Apart} />
+                    <Route exact path='/trucs' render = {()=><Womens setitem={setitem} />}  />
+                    <Route exact path={'/trucs/:aparts'} component={Apart} />
                     <Route exact path={'/mens/:aparts'} component={Apart}/>
                     {/*<Route exact path='/womens/:fromwomens'  component={Newfilter} />*/}
                     <Route path='/contact' component={Contact} />

@@ -11,10 +11,16 @@ export default class Apart extends React.Component{
         loading:true,
         data:''
     }
+    
+    
         componentDidMount(){
-             axios.post('productid',{id:this.props.match.params.aparts})
+             axios.post('prodid',{id:this.props.match.params.aparts})
              .then(data=>{
-                this.setState({product:data,loading:false})
+               if(data.data.length > 0){
+              
+               }
+               console.log(data,this.props.match.params.aparts);
+               this.setState({product:data,loading:false})        
                              
              })   
              window.scrollTo(0,0)
@@ -23,13 +29,15 @@ export default class Apart extends React.Component{
         if(this.state.product.data === undefined){
             console.log('undef')
         }else{
-            console.log(this.state.product.data.product)
+            console.log(this.state.product.data)
         }
+console.log(this.state.product);
 
         const {title, date, price, car, company, ordered} = this.props
         if(this.state.loading) {
             return  <Spiner />
         }
+       
         return(
             <div>
                 {this.props.match.aparts}
@@ -37,8 +45,8 @@ export default class Apart extends React.Component{
                     <div className="apart_general">
                         <div className="apart_details">
                             <div className="parts_title">
-                                <h2>{this.state.product.data.product.carType} {this.state.product.data.product.carModel}
-                                {this.state.product.data.product.carYear} {this.state.product.data.product.carMator}L.
+                                <h2>{this.state.product.data.carType} {this.state.product.data.carModel}
+                                {this.state.product.data.carYear} {this.state.product.data.carMator}L.
                                 {this.props.match.aparts}</h2>
 
                             </div>
@@ -48,27 +56,27 @@ export default class Apart extends React.Component{
                                 <span> {date} Today 12 : 46 </span>
                             </div>
                             <div className="slider">
-                                <Slider img={this.state.product.data.product.img} />
+                                <Slider img={this.state.product.data.img} />
                             </div>
                             <div className={'aoao'}>
                                 <hr/>
                                 <p>Description</p>
                                 <hr/>
-                                <p>{this.state.product.data.product.textInformation}</p>
+                                <p>{this.state.product.data.textInformation}</p>
                             </div>
                         </div>
                         <div className="apart_info">
                             <div className="price">
-                                <h2>{this.state.product.data.product.price}$</h2>
+                                <h2>{this.state.product.data.price}$</h2>
                             </div>
                             <div className={'number'}>
-                                <h4>{this.state.product.data.product.phone}</h4>
+                                <h4>{this.state.product.data.phone}</h4>
                             </div>
 
                             <div className="car_info">
                                 <div className={'title'}>
-                                    <b>{this.state.product.data.product.carType}</b>
-                                    <p>{this.state.product.data.product.first_name}</p>
+                                    <b>{this.state.product.data.carType}</b>
+                                    <p>{this.state.product.data.first_name}</p>
 
                                 </div>
 
