@@ -89,31 +89,12 @@ export default ()=>{
                            <i className="fa fa-map-marker" aria-hidden="true"></i>
                            <div>
                                <b>Location</b>
-                               <p>Armenia,Yerevan Moscow street</p>
+                               <p>Armenia,Yerevan Moscovyan 3/2</p>
                            </div>
                        </div>
                    </div>
 
-                   <div className={'flickr aa'}>
-                       <p><b>FLICKR</b> POSTS</p>
-                       <div className={'flickrimg'}>
-                           <div className={'flickrimgdiv'}>
-                               <div className={'flickri1'}></div>
-                               <div className={'flickri2'}></div>
-                               <div className={'flickri3'}></div>
-                           </div>
-                           <div className={'flickrimgdiv'}>
-                               <div className={'flickri2'}></div>
-                               <div className={'flickri3'}></div>
-                               <div className={'flickri1'}></div>
-                           </div>
-                           <div className={'flickrimgdiv'}>
-                               <div className={'flickri3'}></div>
-                               <div className={'flickri1'}></div>
-                               <div className={'flickri2'}></div>
-                           </div>
-                       </div>
-                   </div>
+                   
                </div>
 
            </div>
