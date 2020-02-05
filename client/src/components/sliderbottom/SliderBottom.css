@@ -26,6 +26,7 @@ figure{
 .test{
     height: 300px;
     margin: 2%;
+    cursor: pointer;
 }
 .test:hover .d{
     width: 103%;

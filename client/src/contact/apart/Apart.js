@@ -48,7 +48,7 @@ console.log(this.state.product);
                                 <h2>{this.state.product.data.carType} {this.state.product.data.carModel}
                                 {this.state.product.data.carYear} {this.state.product.data.carMator}L.
                                 {this.props.match.aparts}</h2>
-
+                                            
                             </div>
                             <div className={'add_as_favorite'}>
                                 <button><i className="fa fa-heart"></i>Add as favorite</button>
@@ -60,7 +60,7 @@ console.log(this.state.product);
                             </div>
                             <div className={'aoao'}>
                                 <hr/>
-                                <p>Description</p>
+        <p>{this.state.product.data.details}</p>
                                 <hr/>
                                 <p>{this.state.product.data.textInformation}</p>
                             </div>

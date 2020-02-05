@@ -128,7 +128,9 @@ import {withRouter} from 'react-router-dom'
                                                    : null}
                                            <div className={'mej'}>
                                               <div className={'adstitle'}>
+                                                  {console.log(item)}
                                                  <p >{item.carType} {item.carModel} {item.carMator} {item.carYear}y.  {item.price}$ </p>
+                                                            <h3 className="userData">   {item.email}      {item.first_name}</h3>
                                    
                                                  <span>{item.textInformation}</span>
                                    

@@ -36,6 +36,7 @@
 }
 .adver{
   .indiv{
+    cursor: pointer;
     justify-content: left;
       img{
         width: 25%;
@@ -49,6 +50,9 @@
           font-size: 20px;
           font-weight: bolder;
         }
+  }
+  .userData{
+    margin-top: 0;
   }
 }
 }

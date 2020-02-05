@@ -15,8 +15,8 @@ export default class Header extends Component{
         headup:[
             {txt:'Sign In', i:'fa fa-unlock'},
             {txt:'Sign Up', i:"fa fa-pencil-square-o"},
-            {txt:'Call : 01234567898',i:'fa fa-phone'},
-            {txt:'info@example.com',i:"fa fa-envelope-o"}
+            {txt:'Call : +374 99 13 20 32',i:'fa fa-phone'},
+            {txt:'info@alcyonsystems.am',i:"fa fa-envelope-o"}
         ],
 
         /// FOR SIGN IN & SIGNUP WINDOWS
@@ -305,9 +305,7 @@ export default class Header extends Component{
                             </div>
                             <p className={'unes'}>Don`t have an account?</p>
                         </div>
-                        <div className={"inpabstwo"}>
-                            <img src={signpic} alt=""/>
-                        </div>
+                        
                         <button type="button" className="close" data-dismiss="modal" onClick={this.closewindow}>×</button>
 
                     </div>
@@ -358,9 +356,7 @@ export default class Header extends Component{
                                 <p className={'unes'}>By clicking register, I agree to your terms</p>
                             </form>
                         </div>
-                        <div className={'inpabstwo'}>
-                            <img src={signpic} alt=""/>
-                        </div>
+                       
 
                         <button type="button" className="close" data-dismiss="modal" onClick={this.closewindow}>×</button>
                     </div>

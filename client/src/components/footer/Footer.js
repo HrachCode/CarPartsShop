@@ -75,14 +75,14 @@ export default ()=>{
                            <i className="fa fa-phone" aria-hidden="true"></i>
                            <div>
                                <b>Phone Number</b>
-                               <p>+1 234 567 8901</p>
+                               <p>+374 99 132 032</p>
                            </div>
                        </div>
                        <div className={'footercontact'}>
                            <i className="fa fa-envelope" aria-hidden="true"></i>
                            <div>
                                <b>Email Address</b>
-                               <p>Email : <span >mail@example.com</span></p>
+                               <p>Email : <span >info@alcyonsystems.am</span></p>
                            </div>
                        </div>
                        <div className={'footercontact'}>
