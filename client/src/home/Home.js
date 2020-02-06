@@ -5,7 +5,7 @@ import Middle from '../components/middle/Middle';
 import Fixed from '../components/fixed/Fixed'
 import ShopCart from'../components/shopCarts/Lending'
 
-export default ({setitem,shopProduct}) => {
+export default ({setitem}) => {
    
     return(
         <div>

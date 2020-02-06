@@ -29,7 +29,7 @@ class Womens extends Component {
     componentDidMount(){
         setProduct(`stok/womenproduct`,"GET")
             .then(body =>{
-                this.setState({products:body})
+                this.setState({products:body.reverse()})
                 this.getProduct(body)
 
             })

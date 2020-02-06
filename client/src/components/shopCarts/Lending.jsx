@@ -19,7 +19,7 @@ class Shopcart extends React.Component {
     componentDidMount(){
         setProduct(`stok/${this.state.query}`,"GET")
             .then(body =>{
-                this.getProduct(body)
+                this.getProduct(body.reverse())
             })
             .catch(err => console.log(err))
     }
@@ -32,7 +32,7 @@ class Shopcart extends React.Component {
         getShopBascket.cart({id:e.target.name},'stok/cartVew')
             .then(body =>{
                 const setitem = this.props.setitem;
-                setitem(body)
+                setitem(body.reverse())
             })
             .catch(err => console.log(err))
 
@@ -57,7 +57,6 @@ class Shopcart extends React.Component {
 
     BtnQuickView=(i)=>{
        this.setState({QuickCards:i})
-        console.log(this.state.products)
 
     }
 
@@ -66,7 +65,8 @@ class Shopcart extends React.Component {
         if(this.state.loading){
             return <Spiner />
         }
-
+        console.log(this.state.products);
+        
         const ad = ["Cars", "Trucks", "Motorcycles"];
 
         return (
