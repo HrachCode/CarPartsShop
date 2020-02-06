@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import signpic from './images/signpic.jpg';
 import HeaderBottom from './headerbottom/HeaderBottom';
 import Navbar from './navbar/Navbar'
 import {login,register} from '../UserFunctions'
@@ -207,14 +206,15 @@ export default class Header extends Component{
         login(user).then(res => {
 
             if (res!== undefined && res.islogined === true) {
+                this.props.islogin()
                 this.getuser()
                 this.setState({
                     openSign:false,
-
+                    
                 })
                 window.onscroll = function () { window.scrollTo(); };
             }else{
-                console.log(res)
+                alert('invalid login or password')
             }
         }).catch(this.setState(state => ({ errors:'such user does not exist' })) );
 
@@ -223,8 +223,14 @@ export default class Header extends Component{
         const token = localStorage.myusertoken;
         if(token !== undefined){
             const decoded = jwt_decode(token)
-            this.setState({user:decoded})
+            this.setState({user:decoded,
+                hedup:[
+                    {txt:'Sign In', i:'fa fa-unlock'},
+                    {txt:'Call : +374 99 13 20 32',i:'fa fa-phone'},
+                    {txt:'info@alcyonsystems.am',i:"fa fa-envelope-o"}
+                ]})
         }
+        
     }
     onSubmits=(e)=> {
         e.preventDefault()

@@ -12,13 +12,13 @@ import Womens from './womens/Womens'
 import Contact from './contact/Contact'
 import FooterTop from './components/footer/footertop/FooterTop'
 import Shop from './shop/Shop'
-import Newfilter from "./newfilter/Newfilter"
 import Context from './components/contextProvider'
 import Apart from "./contact/apart/Apart";
 // import 'antd/dist/antd.css'
 function App(){
     let itemsArray = localStorage.getItem('cartId') ? JSON.parse(localStorage.getItem('cartId')) : [];
     let [shopProduct, setStates] = useState({itemsArray:itemsArray,key:1})
+    let [isLogined, setlogin] = useState(false)
 
 
 
@@ -41,22 +41,24 @@ console.log(arr);
         const item = itemsArray.filter(item=> e !== item._id  );
         localStorage.setItem('cartId', JSON.stringify(item))  ;
         itemsArray = item
-        setStates({itemsArray:itemsArray,key:shopProduct.key + shopProduct.key})
-          
+        setStates({itemsArray:itemsArray,key:shopProduct.key + shopProduct.key})    
     }
-
+ const islogin = ()=>{
+    setStates({key:8})
+ }
  const  adminExit = ()=>{
         
         localStorage.removeItem('itemtId')
        
       }
+console.log(isLogined);
 
     return (
           <Context.Provider value = {setitem}>   
         <Router>
             <div>
                 <header key={shopProduct.key}>
-                    <Header shopProduct={shopProduct.itemsArray } deletItem={deletItem}/>
+                    <Header shopProduct={shopProduct.itemsArray } deletItem={deletItem} islogin={islogin} isLogined={isLogined}/>
                 </header>
                 <Switch>
                     <Route exact path='/' render = {()=><Home setitem={setitem} />} />
