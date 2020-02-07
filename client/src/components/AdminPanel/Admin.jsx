@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {sendData} from '../UserFunctions'
+import Adminlogin from './Adminlogin'
 import './admin.scss'
 import uuid from 'uuidv4';
 import Home from './Home'
@@ -99,7 +99,8 @@ export default class Goods extends Component {
         </ul>
       </div>
       {(this.state.navigate === 'home')?<Home apdateProduct={this.apdateProduct} />
-      :(this.state.navigate === 'add product')?<AddProduct setings={this.setings} />:null}
+      :(this.state.navigate === 'add product')?<AddProduct setings={this.setings} />:
+      (this.state.navigate === 'static')?<Adminlogin />:null}
     
             </div>     
      )

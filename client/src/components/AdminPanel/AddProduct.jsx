@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import ImgLogin from './ImgLoad'
 import FormWrap from './FormWrap'
-import FormWrap2 from './FormWrap-2'
 
 class AddProduct extends Component {
     
