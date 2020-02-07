@@ -1,7 +1,7 @@
 const express = require('express')
 const admin = express.Router()
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
+const sha256 = require('sha256');
 const Admin = require('../models/Admin')
 
 
@@ -14,15 +14,14 @@ admin.post('/register', (req, res) => {
     first_name,
     password,
     } = req.body;
-  
+    adminData.password = sha256(req.body.password)
   User.findOne({
     first_name: req.body.first_name
   })
     .then(admin => {
       console.log(admin)
       if (!admin) {
-        bcrypt.hash(req.body.password, 10, (err, hash) => {
-          adminData.password = hash
+         
           Admin.create(adminData)
             .then(admin => {
               res.json({ status:'Registered!' })
@@ -32,7 +31,7 @@ admin.post('/register', (req, res) => {
                 error:err
               })
             })
-        })
+        
       } else {
         res.json({ error: 'User already exists' })
       }
@@ -43,13 +42,14 @@ admin.post('/register', (req, res) => {
 })
 
 admin.post('/login', (req, res) => {
+  console.log(req.body);
   
   Admin.findOne({
     first_name: req.body.first_name
   })
     .then(user => {
       if (user) {
-        if (bcrypt.compareSync(req.body.password, user.password)) {
+        if (usha256(req.body.password) === user.passwordser) {
           // Passwords match
           const payload = {
             _id: user._id,

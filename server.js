@@ -42,7 +42,7 @@ app.use('/users', Users)
 app.use('/stok', Goods)
 app.use('/avds',Avds)
 app.use('/filter',Filters)
-// app.use('/s',Admin)
+app.use('/s',Admin)
 app.use('/', Products)
 
 if (process.env.NODE_ENV === 'production') {

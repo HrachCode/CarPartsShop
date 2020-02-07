@@ -1,7 +1,7 @@
 const express = require('express')
 const users = express.Router()
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
+const sha256 = require('sha256');
 const User = require('../models/User')
 
 
@@ -16,7 +16,7 @@ users.post('/register', (req, res) => {
     password,
     phone    
   } = req.body;
- 
+ userData.password = sha256(req.body.password)
   User.findOne({
     email: req.body.email
   })
@@ -25,8 +25,7 @@ users.post('/register', (req, res) => {
      return res.status(401).json({message: 'User already exists'})
    }
       if (!user) {
-        bcrypt.hash(req.body.password, 10, (err, hash) => {
-          userData.password = hash
+              
           User.create(userData)
             .then(user => {
               res.json({ status: user.email + 'Registered!' })
@@ -36,7 +35,7 @@ users.post('/register', (req, res) => {
                 error:err
               })
             })
-        })
+        
       } else {
         res.status(402).json({ message: 'User already exists' })
       }
@@ -49,13 +48,14 @@ users.post('/register', (req, res) => {
 })
 
 users.post('/login', (req, res) => {
-  console.log(req.body)
   User.findOne({
     email: req.body.email
   })
     .then(user => {
       if (user) {
-        if (bcrypt.compareSync(req.body.password, user.password)) {
+       
+        
+        if (sha256(req.body.password) === user.password) {
           // Passwords match
           const payload = {
             _id: user._id,

@@ -13,7 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^3.26.6",
-    "bcrypt": "^3.0.0",
     "body-parser": "^1.17.2",
     "bootstrap": "^4.3.1",
     "concurrently": "^5.0.0",
@@ -36,6 +35,7 @@
     "react-responsive-carousel": "^3.1.51",
     "react-search-input": "^0.11.3",
     "redux": "^4.0.4",
+    "sha256": "^0.2.0",
     "socket-io": "^1.0.0",
     "socket.io": "^2.3.0",
     "url": "^0.11.0",
