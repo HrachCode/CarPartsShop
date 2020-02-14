@@ -4,6 +4,7 @@ const app = express()
 const server = require('http').createServer(app);
 const mongoose = require('mongoose')
 const Users = require('./routes/Users')
+const Multer = require('./routes/clodenary')
 const Goods = require('./routes/Goods')
 const Admin = require('./routes/Admin')
 const Products = require ('./routes/Products')
@@ -17,7 +18,7 @@ const hendelError = require('./middlwere/errorhendeler')
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
-    extended: false
+    extended: false,
   })
 )
 
@@ -43,6 +44,7 @@ app.use('/stok', Goods)
 app.use('/avds',Avds)
 app.use('/filter',Filters)
 app.use('/s',Admin)
+app.use('/multer',Multer);
 app.use('/', Products)
 
 if (process.env.NODE_ENV === 'production') {

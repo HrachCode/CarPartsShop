@@ -23,7 +23,7 @@ const Announcment = (  props) =>{
                          {props.data.img.length > 1 ? <img src={`./img/${props.data.img[0]}`} alt=""/> : props.data.img.length === 0 ?
                     <img src={pic1} alt=""/> : props.data.img.length === 1 ? props.data.img.map((e,i)=>{
                             return(
-                                <img key={props.i} onClick={()=>console.log(e)} src={`./img/${props.e}`} alt=""/>
+                                <img key={i} onClick={()=>console.log(e)} src={`./img/${props.e}`} alt=""/>
                             )})
                         : null}
                 <div className={'antitle'}>

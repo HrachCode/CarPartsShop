@@ -185,3 +185,15 @@ legend{
 .myinputs input, label{
     font-size: 20px !important;
 }
+.allImgWrap{
+    display: flex;
+    justify-content: center;
+}
+.imgWrap{
+    width: 100px;
+    height: 100px;
+    img{
+        height: 100%;
+        width: 100%;
+    }
+  }

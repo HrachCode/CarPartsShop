@@ -37,6 +37,8 @@ const upload = multer({
   }
 })
 route.post ('/imgDownload',upload.array('imgCollection', 6), (req, res,err) => {
+  console.log(req.files,'olla');
+  
   let error = '';
     if (err) {
       if (err.code === 'LIMIT_FILE_SIZE') {

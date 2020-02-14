@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Announcment from "./Announcment";
 import AddAnnouncment from "./AddAnnouncment";
+import UserSetings from './UserSetings'
 import axios from 'axios';
 import jwt_decode from 'jwt-decode'
 import Spiner from '../Spiner/Spiner'
@@ -117,6 +118,7 @@ export default function ScrollableTabsButtonAuto() {
                >
                  <Tab label="Your Announcments" {...a11yProps(0)} />
                  <Tab label="Add Announcment" {...a11yProps(1)} />
+                 <Tab label="profile setings" {...a11yProps(2)} />
 
                </Tabs>
              </AppBar>
@@ -134,6 +136,12 @@ export default function ScrollableTabsButtonAuto() {
              <TabPanel value={value} index={1}>
                <AddAnnouncment fetchPosts={fetchPosts}/>
              </TabPanel>
+             <TabPanel value={value} index={2}>
+              <UserSetings />
+             </TabPanel>
+            
+             
+             
 
            </div> }
          </div>

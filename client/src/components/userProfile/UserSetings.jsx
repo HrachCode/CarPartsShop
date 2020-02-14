@@ -1,10 +1,11 @@
+
 import React, { Component } from 'react';
 import { UploadField } from "@navjobs/upload";
 import { Button, Input } from "antd";
-// import UploadFiles from './material Ui/UploadFiles'
+ import profilimg from './announcmentpic/emptydatark.jpg'
 import {sendData} from '../UserFunctions'
 
- class Adminlogin extends Component{
+ class UserSetings extends Component{
    state = {
      img:[],
      fileSelected:null
@@ -56,7 +57,7 @@ import {sendData} from '../UserFunctions'
         console.log( this.state.img);
         return (
           <div>
-               
+              
           <UploadField
             onFiles={this.onImgSubmit}
             containerProps={{
@@ -67,23 +68,27 @@ import {sendData} from '../UserFunctions'
               multiple: "multiple"
             }}
           >
-            <Button type="link" shape="circle" icon="camera" />
+            <Button type="link" shape="circle" icon="camera" className="imgbtn"/>
           </UploadField>
-          <div className="allImgWrap">
-          {this.state.img.length?this.state.img.map(item=>{
+       
+          
+          
+          <div id="profileImg">
+          {this.state.img.length === 0? <img src={profilimg} alt="img"/>:this.state.img.map(item=>{
             
-            return <div className='imgWrap' key={item}>
-              <img src={`./img/${item}`} alt="img"/>
-            </div>
+            return  <img src={`./img/${item}`} alt="img"/>
+             
+            
          
             
-          }):null}
-            </div>
-         
+          })}
           </div>
+            </div>
+         
+         
       )
   
        }
 }
 
-export default Adminlogin
+export default UserSetings

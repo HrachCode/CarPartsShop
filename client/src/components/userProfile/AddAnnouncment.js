@@ -221,6 +221,7 @@ export default class AddAnnouncment extends Component{
 
     }
     onImgSubmit = (e)=>{
+         console.log(this.state.fileSelected);
          
         e.preventDefault();
         if(this.state.fileSelected === null){
@@ -446,8 +447,7 @@ export default class AddAnnouncment extends Component{
                 <div className={'add_photo'}>
                     <p >Add Photo</p>
                    <ImgLoad onImgSubmit={this.onImgSubmit} onChangeimg={this.setings}/>
-                    {/*<PicturesWall/>PicturesWall*/}
-                    {/*<button onClick={()=>console.log(this.state.userProfile,'olla')}>okkkk</button>*/}
+                   
 
                 </div>
                 <div className={'addann'} >
