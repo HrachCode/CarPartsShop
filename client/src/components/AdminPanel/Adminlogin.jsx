@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { UploadField } from "@navjobs/upload";
-import { Button, Input } from "antd";
+import { Button } from "antd";
 // import UploadFiles from './material Ui/UploadFiles'
 import {sendData} from '../UserFunctions'
 

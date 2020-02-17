@@ -2,13 +2,18 @@
 import React, { Component } from 'react';
 import { UploadField } from "@navjobs/upload";
 import { Button, Input } from "antd";
- import profilimg from './announcmentpic/emptydatark.jpg'
+import profilimg from './announcmentpic/emptydatark.jpg'
 import {sendData} from '../UserFunctions'
-
+import UserSetingForms from './UserSetingForms'
  class UserSetings extends Component{
    state = {
      img:[],
-     fileSelected:null
+     fileSelected:null,
+     name:'',
+     newpasseod:'',
+     Password:'',
+     address:'',
+     Fonnumber:'',
    }
    onChangeimg = e=> this.setState({fileSelected:e.target.files})
    setings = {
@@ -52,13 +57,49 @@ import {sendData} from '../UserFunctions'
    }, 500);
 
 }
+onChange = (e)=> {
+  const name = e.target.name;
+  const value = e.target.value;
+    this.setState({ [name]: value })
+  console.log();
+  
+}
+hendlClick = (e)=>{
+  e.preventDefault()
+  let img = null;
+  if(this.state.img.length > 0){
+    this.state.img.forEach(item=>{
+      img = item;
+      
+    })
+  }
+  const userSetingsData = {
+    name : this.state.name,
+    newpasseod: this.state.email,
+    Password : this.state.Password,
+    address : this.state.address,
+    Fonnumber : this.state.city,
+    img : img
+
+  }
+  console.log(userSetingsData);
+  
+}
     
        render(){
-        console.log( this.state.img);
+      
         return (
-          <div>
-              
-          <UploadField
+          <div className="setingsWrap">
+        
+          <div id="profileImg">
+         
+          {this.state.img.length === 0? <img src={profilimg} alt="img"/>:this.state.img.map(item=>{
+            
+            return  <img key={item} src={`./img/${item}`} alt="img"/>          
+          })}
+          <div className="desc">
+            <span>Upload a img</span>
+            <UploadField
             onFiles={this.onImgSubmit}
             containerProps={{
               className: "chat-input__actions-upload-btn"
@@ -70,19 +111,11 @@ import {sendData} from '../UserFunctions'
           >
             <Button type="link" shape="circle" icon="camera" className="imgbtn"/>
           </UploadField>
-       
-          
-          
-          <div id="profileImg">
-          {this.state.img.length === 0? <img src={profilimg} alt="img"/>:this.state.img.map(item=>{
-            
-            return  <img src={`./img/${item}`} alt="img"/>
-             
-            
-         
-            
-          })}
           </div>
+          </div>
+         <div className="profilesetingsForms">
+         <UserSetingForms onChange={this.onChange} hendlClick = {this.hendlClick} user = {this.props.user}/> 
+         </div>
             </div>
          
          

@@ -119,9 +119,27 @@
 }
 #profileImg{
     width: 20%;
-    height: 200px;
+    height: 266;
     img{
         width: 100%;
         height: 100%;
+    }
+}
+.setingsWrap{
+    display: flex;
+    justify-content: space-evenly;
+    height: 266px;
+}
+
+.desc{
+    display: flex;
+    justify-content: space-between;
+
+    span{
+        font-size: 21px;
+    }
+    button{
+        width: 66px;
+    margin-top: 7px;
     }
 }

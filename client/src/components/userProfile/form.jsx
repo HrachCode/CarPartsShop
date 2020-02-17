@@ -70,6 +70,7 @@ export default function ScrollableTabsButtonAuto() {
     const token = localStorage.myusertoken;
     if(token){
         const  decoded = jwt_decode(token)
+
           setdelet(decoded)
           fetchPosts(decoded);
            
@@ -137,7 +138,7 @@ export default function ScrollableTabsButtonAuto() {
                <AddAnnouncment fetchPosts={fetchPosts}/>
              </TabPanel>
              <TabPanel value={value} index={2}>
-              <UserSetings />
+              <UserSetings user={user}/>
              </TabPanel>
             
              
