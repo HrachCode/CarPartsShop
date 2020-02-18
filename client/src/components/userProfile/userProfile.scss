@@ -126,7 +126,9 @@
     }
 }
 .setingsWrap{
+
     display: flex;
+    flex-wrap:wrap ;
     justify-content: space-evenly;
     height: 266px;
 }
@@ -140,6 +142,20 @@
     }
     button{
         width: 66px;
-    margin-top: 7px;
+   
     }
+}
+
+#imgid{
+    display: flex;
+    justify-content: center;
+    height: 266px;
+    align-items: center;
+}
+
+#errspan{
+    position: absolute;
+    left: 58%;
+    font-size: large;
+    color: brown;
 }

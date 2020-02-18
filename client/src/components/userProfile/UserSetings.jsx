@@ -5,15 +5,24 @@ import { Button, Input } from "antd";
 import profilimg from './announcmentpic/emptydatark.jpg'
 import {sendData} from '../UserFunctions'
 import UserSetingForms from './UserSetingForms'
+import 'antd/dist/antd.css';
+import { Spin } from 'antd';
  class UserSetings extends Component{
    state = {
+    errorMessages:{
+      passError:false,
+    },
+    isloading:false,
      img:[],
+     city:'',
+     state:'',
      fileSelected:null,
      name:'',
      newpasseod:'',
      Password:'',
      address:'',
      Fonnumber:'',
+     newpasseod:''
    }
    onChangeimg = e=> this.setState({fileSelected:e.target.files})
    setings = {
@@ -22,8 +31,8 @@ import UserSetingForms from './UserSetingForms'
     err:''
 }
  onImgSubmit = (e)=>{
-    
-  this.setState({fileSelected:e}) 
+ 
+  this.setState({fileSelected:e,isloading:true}) 
  
    setTimeout(() => {
     if(this.state.fileSelected === null){
@@ -42,12 +51,12 @@ import UserSetingForms from './UserSetingForms'
            
             if(!respons.data.error){
                 this.setings.apdateProduct = respons;
-                this.setState({img:respons.data.fileName})
+                this.setState({img:respons.data.fileName,isloading:false})
                 
                 
             }else{
                 this.setings.apdateProduct ='null;'
-                this.setState({img:[]})
+                this.setState({img:[],isloading:false})
 
             };
         }).catch(err=>{
@@ -66,6 +75,15 @@ onChange = (e)=> {
 }
 hendlClick = (e)=>{
   e.preventDefault()
+  if(this.state.newpasseod !== ''){
+    console.log(this.state.newpasseod,this.state.Password);
+    
+    if(this.state.newpasseod !== this.state.Password)
+         this.setState({errorMessages:{passError:true}})
+  }else if('^(([\+]{1}[0-9]{1,3}[\ ]{1}[0-9]{1,2}[\ ]{1}[0-9]{4}[\ ]{1}[0-9]{4})|([0]{1}[0-9]{1}[\ ]{1}[0-9]{4}[\ ]{1}[0-9]{4})|([0]{1}[0-9]{1}[\-]{1}[0-9]{4}[\-]{1}[0-9]{4})|([\(]{1}[0]{1}[0-9]{1}[\)]{1}[\ ]{1}[0-9]{4}([\ ]|[\-]){1}[0-9]{4})|([0-9]{4}([\ ]|[\-])?[0-9]{4})|([0]{1}[0-9]{3}[\ ]{1}[0-9]{3}[\ ]{1}[0-9]{3})|([0]{1}[0-9]{9})|([\(]{1}[0-9]{3}[\)]{1}[\ ]{1}[0-9]{3}[\-]{1}[0-9]{4})|([0-9]{3}([\/]|[\-]){1}[0-9]{3}[\-]{1}[0-9]{4})|([1]{1}[\-]?[0-9]{3}([\/]|[\-]){1}[0-9]{3}[\-]{1}[0-9]{4})|([1]{1}[0-9]{9}[0-9]?)|([0-9]{3}[\.]{1}[0-9]{3}[\.]{1}[0-9]{4})|([\(]{1}[0-9]{3}[\)]{1}[0-9]{3}([\.]|[\-]){1}[0-9]{4}(([\ ]?(x|ext|extension)?)([\ ]?[0-9]{3,4}))?)|([1]{1}[\(]{1}[0-9]{3}[\)]{1}[0-9]{3}([\-]){1}[0-9]{4})|([\+]{1}[1]{1}[\ ]{1}[0-9]{3}[\.]{1}[0-9]{3}[\-]{1}[0-9]{4})|([\+]{1}[1]{1}[\ ]?[\(]{1}[0-9]{3}[\)]{1}[0-9]{3}[\-]{1}[0-9]{4}))$'){
+
+  }
+
   let img = null;
   if(this.state.img.length > 0){
     this.state.img.forEach(item=>{
@@ -78,11 +96,15 @@ hendlClick = (e)=>{
     newpasseod: this.state.email,
     Password : this.state.Password,
     address : this.state.address,
-    Fonnumber : this.state.city,
-    img : img
+    Fonnumber : this.state.Fonnumber,
+    img : img,
+    sity:this.state.city,
+    state:this.state.state,
+    newpasseod:this.state.newpasseod
+
 
   }
-  console.log(userSetingsData);
+  console.log(this.state.errorMessages);
   
 }
     
@@ -92,11 +114,11 @@ hendlClick = (e)=>{
           <div className="setingsWrap">
         
           <div id="profileImg">
-         
-          {this.state.img.length === 0? <img src={profilimg} alt="img"/>:this.state.img.map(item=>{
+         {!this.state.isloading?<div>{this.state.img.length === 0? <img src={profilimg} alt="img"/>:this.state.img.map(item=>{
             
             return  <img key={item} src={`./img/${item}`} alt="img"/>          
-          })}
+          })}</div>:<div id="imgid"><Spin size="large"/></div>}
+          
           <div className="desc">
             <span>Upload a img</span>
             <UploadField
@@ -114,7 +136,8 @@ hendlClick = (e)=>{
           </div>
           </div>
          <div className="profilesetingsForms">
-         <UserSetingForms onChange={this.onChange} hendlClick = {this.hendlClick} user = {this.props.user}/> 
+         <UserSetingForms onChange={this.onChange} hendlClick = {this.hendlClick}
+              errorMessages={this.state.errorMessages} user = {this.props.user}/> 
          </div>
             </div>
          
