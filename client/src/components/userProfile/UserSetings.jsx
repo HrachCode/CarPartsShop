@@ -19,7 +19,7 @@ import { Spin } from 'antd';
      state:'',
      fileSelected:null,
      name:'',
-     newpasseod:'',
+     newpassword:'',
      Password:'',
      address:'',
      Fonnumber:'',
@@ -77,15 +77,23 @@ onChange = (e)=> {
 hendlClick = (e)=>{
   e.preventDefault()
   if(this.state.newpasseod !== ''){
-    console.log(this.state.newpasseod,this.state.Password);
+
     
-    if(this.state.newpasseod !== this.state.Password)
+    if(this.state.newpasseod !== this.state.Password){
          this.setState({errorMessages:{passError:true}})
-  }
-  if(parseInt(this.state.Fonnumber) && this.state.Fonnumber.length === 8 ){
-      console.log(this.state.Fonnumber)
+      return
+    }
+      if(!parseInt(this.state.Fonnumber) || this.state.Fonnumber.length === 8 ){
+          console.log(this.state.Fonnumber)
+          this.setState({errorMessages:{passError:false,foneError:true}})
+          return
+      }else{
+          this.setState({errorMessages:{passError:false,foneError:false}})
+      }
+  }else{
       this.setState({errorMessages:{passError:true}})
   }
+
 
   let img = null;
   if(this.state.img.length > 0){
@@ -104,10 +112,10 @@ hendlClick = (e)=>{
     sity:this.state.city,
     state:this.state.state,
 
-
-
   }
-  console.log(this.state.errorMessages);
+  if(!this.state.errorMessages.foneError && !this.state.errorMessages.passError){
+      console.log(userSetingsData);
+  }
   
 }
     
