@@ -33,13 +33,17 @@ export default function UserSetingForms({ onChange, hendlClick, user,errorMessag
       setnewSelekt(result)
          },[selekt]);
    
-      console.log(errorMessages.passError);
+      console.log(errorMessages)
       
       var selektclass = classNames({
         btn: true,
         'selct-pressed': selekt,
         'has-error has-feedback': errorMessages.passError
       });
+    var foneError = classNames({
+        btn: true,
+        'has-error has-feedback': errorMessages.foneError
+    });
     return (
      
         <div>
@@ -67,7 +71,8 @@ export default function UserSetingForms({ onChange, hendlClick, user,errorMessag
   <Form.Row>
     <Form.Group as={Col} controlId="formGridCity">
       <Form.Label>Fonnumber</Form.Label>
-      <Form.Control name="Fonnumber" onChange={onChange}/>
+      <Form.Control placeholder="93111213" name="Fonnumber" className={foneError} onChange={onChange}/>
+        {errorMessages.foneError?<span id="errspan">Passwords do not match</span>:null}
     </Form.Group>
 
     <Form.Group as={Col} controlId="formGridState">
@@ -82,7 +87,7 @@ export default function UserSetingForms({ onChange, hendlClick, user,errorMessag
       </Form.Control>
     </Form.Group>
 
-    <Form.Group as={Col} controlId="formGridState">
+    <Form.Group as={Col} controlId="formGridStates">
       <Form.Label>City</Form.Label>
       <Form.Control as="select" name="city"  onChange={(e)=>{
         return onChange(e)

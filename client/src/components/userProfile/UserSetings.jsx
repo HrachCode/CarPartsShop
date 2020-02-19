@@ -11,6 +11,7 @@ import { Spin } from 'antd';
    state = {
     errorMessages:{
       passError:false,
+      foneError:false
     },
     isloading:false,
      img:[],
@@ -22,7 +23,7 @@ import { Spin } from 'antd';
      Password:'',
      address:'',
      Fonnumber:'',
-     newpasseod:''
+
    }
    onChangeimg = e=> this.setState({fileSelected:e.target.files})
    setings = {
@@ -80,8 +81,10 @@ hendlClick = (e)=>{
     
     if(this.state.newpasseod !== this.state.Password)
          this.setState({errorMessages:{passError:true}})
-  }else if('^(([\+]{1}[0-9]{1,3}[\ ]{1}[0-9]{1,2}[\ ]{1}[0-9]{4}[\ ]{1}[0-9]{4})|([0]{1}[0-9]{1}[\ ]{1}[0-9]{4}[\ ]{1}[0-9]{4})|([0]{1}[0-9]{1}[\-]{1}[0-9]{4}[\-]{1}[0-9]{4})|([\(]{1}[0]{1}[0-9]{1}[\)]{1}[\ ]{1}[0-9]{4}([\ ]|[\-]){1}[0-9]{4})|([0-9]{4}([\ ]|[\-])?[0-9]{4})|([0]{1}[0-9]{3}[\ ]{1}[0-9]{3}[\ ]{1}[0-9]{3})|([0]{1}[0-9]{9})|([\(]{1}[0-9]{3}[\)]{1}[\ ]{1}[0-9]{3}[\-]{1}[0-9]{4})|([0-9]{3}([\/]|[\-]){1}[0-9]{3}[\-]{1}[0-9]{4})|([1]{1}[\-]?[0-9]{3}([\/]|[\-]){1}[0-9]{3}[\-]{1}[0-9]{4})|([1]{1}[0-9]{9}[0-9]?)|([0-9]{3}[\.]{1}[0-9]{3}[\.]{1}[0-9]{4})|([\(]{1}[0-9]{3}[\)]{1}[0-9]{3}([\.]|[\-]){1}[0-9]{4}(([\ ]?(x|ext|extension)?)([\ ]?[0-9]{3,4}))?)|([1]{1}[\(]{1}[0-9]{3}[\)]{1}[0-9]{3}([\-]){1}[0-9]{4})|([\+]{1}[1]{1}[\ ]{1}[0-9]{3}[\.]{1}[0-9]{3}[\-]{1}[0-9]{4})|([\+]{1}[1]{1}[\ ]?[\(]{1}[0-9]{3}[\)]{1}[0-9]{3}[\-]{1}[0-9]{4}))$'){
-
+  }
+  if(parseInt(this.state.Fonnumber) && this.state.Fonnumber.length === 8 ){
+      console.log(this.state.Fonnumber)
+      this.setState({errorMessages:{passError:true}})
   }
 
   let img = null;
@@ -100,7 +103,7 @@ hendlClick = (e)=>{
     img : img,
     sity:this.state.city,
     state:this.state.state,
-    newpasseod:this.state.newpasseod
+
 
 
   }
