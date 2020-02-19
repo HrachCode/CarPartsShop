@@ -31,7 +31,7 @@ export default function UserSetingForms({ onChange, hendlClick, user,errorMessag
      selekt === 'Ararat' ? AraratStates:  ['......']      
      
       setnewSelekt(result)
-         },[selekt]);
+         },[selekt])
    
       console.log(errorMessages)
       
