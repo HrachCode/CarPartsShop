@@ -130,7 +130,7 @@
     display: flex;
     flex-wrap:wrap ;
     justify-content: space-evenly;
-    height: 266px;
+
 }
 
 .desc{
@@ -169,7 +169,6 @@
 }
 .pswrd{
     width: 100%;
-    height: 500px;
     display: flex;
     justify-content: space-evenly;
     flex-flow: wrap;
@@ -177,4 +176,11 @@
 .passinps{
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
+}
+.passDesc{
+   width: 25%;
+}
+#inputs{
+    width: 40%;
 }

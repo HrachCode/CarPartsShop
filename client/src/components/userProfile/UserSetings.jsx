@@ -11,18 +11,13 @@ import { Spin } from 'antd';
 import axios from 'axios';
  class UserSetings extends Component{
    state = {
-    errorMessages:{
-      passError:false,
-      foneError:false
-    },
+   
     isloading:false,
      img:[],
      city:'',
      state:'',
      fileSelected:null,
      name:'',
-     newpassword:'',
-     Password:'',
      address:'',
      Fonnumber:'',
 
@@ -74,30 +69,10 @@ onChange = (e)=> {
   const value = e.target.value;
     this.setState({ [name]: value })
 
-
 }
 hendlClick = (e)=>{
   e.preventDefault()
-  if(this.state.newpassword !== ''){
-
-    if(this.state.newpassword !== this.state.Password){
-         this.setState({errorMessages:{passError:true}})
-      return
-    }
-      if(this.state.Fonnumber !== ''){
-        if(!parseInt(this.state.Fonnumber) || this.state.Fonnumber.length === 7 ){
-          console.log(this.state.Fonnumber)
-          this.setState({errorMessages:{passError:false,foneError:true}})
-          return
-      }else{
-          this.setState({errorMessages:{passError:false,foneError:false}})
-      }
-      }
-  }else{
-      this.setState({errorMessages:{passError:true}})
-  }
-
-
+ 
   let img = null;
   let mail = null;
   if(this.state.img.length > 0){
@@ -120,7 +95,7 @@ hendlClick = (e)=>{
     mail:this.props.user.user[0].email
 
   }
-  if(!this.state.errorMessages.foneError && !this.state.errorMessages.passError){
+  if(false){
       axios.post('users/usersetingUbdate',{user:userSetingsData})
       console.log(userSetingsData,this.props.user);
 
@@ -157,12 +132,12 @@ hendlClick = (e)=>{
           </div>
          <div className="profilesetingsForms">
          <UserSetingForms onChange={this.onChange} hendlClick = {this.hendlClick}
-              errorMessages={this.state.errorMessages} user = {this.props.user}/>
+              user = {this.props.user}/>
 
          </div>
             </div>
             <div className="pswrd">
-              <Passubdate/>
+              <Passubdate onChange={this.onChange}/>
             </div>
 
             </div>

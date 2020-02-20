@@ -4,7 +4,7 @@ import {Button}  from 'react-bootstrap'
 import {Col}  from 'react-bootstrap'
 import classNames from 'classnames'
 
-export default function UserSetingForms({ onChange, hendlClick, user,errorMessages }) {
+export default function UserSetingForms({ onChange, hendlClick, user }) {
     const [selekt,setSelekt]=useState('')
     const [newselekt,setnewSelekt]=useState(['......'])
 
@@ -36,14 +36,10 @@ export default function UserSetingForms({ onChange, hendlClick, user,errorMessag
 
 
       var selektclass = classNames({
-
         'selct-pressed': selekt,
-        'has-error has-feedback': errorMessages.passError
+        // 'has-error has-feedback': errorMessages.passError
       });
-    var foneError = classNames({
-
-        'has-error has-feedback  haserror': errorMessages.foneError
-    });
+   
     return (
 
         <div>
@@ -52,7 +48,7 @@ export default function UserSetingForms({ onChange, hendlClick, user,errorMessag
 
 
   <Form.Group controlId="formGridAddress1">
-          {errorMessages.passError?<span id="errspan">Passwords do not match</span>:null}
+        
     <Form.Label>Address</Form.Label>
     <Form.Control placeholder="1234 Main St" name="address" onChange={onChange} />
   </Form.Group>
@@ -61,8 +57,8 @@ export default function UserSetingForms({ onChange, hendlClick, user,errorMessag
   <Form.Row>
     <Form.Group as={Col} controlId="formGridCity">
       <Form.Label>Fonnumber</Form.Label>
-      <Form.Control placeholder="93111213" name="Fonnumber" className={foneError} onChange={onChange}/>
-        {errorMessages.foneError?<span className="erroremessage">funnuber note correct</span>:null}
+      <Form.Control placeholder="93111213" name="Fonnumber"  onChange={onChange}/>
+       
     </Form.Group>
 
     <Form.Group as={Col} controlId="formGridState">
