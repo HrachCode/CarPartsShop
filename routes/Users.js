@@ -98,10 +98,29 @@ users.get('/profile', (req, res) => {
       res.send('error: ' + err)
     })
 })
-users.post('/goods', (req, res) => {
- 
-      const data = req.body
-      res.json(data)
+users.post('/usersetingUbdate', (req, res) => {
+  User.findOne({
+    email:req.body.user.mail
+  }).then(user=>{
+    let passwordValid = '';
+    console.log(req.body.user.Password,req.body.user.newpassword);
+    console.log(req.body);
+    
+    if(req.body.user.Password){
+     
+      
+      if(sha256(req.body.user.Password) !== user.password){  
+        console.log(2);
+            
+          return res.status(400).json({message:'password is invalid'})
+      }else{
+          console.log('ok');          
+      }
+    }
+    
+  })
+     
+     
   
 })
 

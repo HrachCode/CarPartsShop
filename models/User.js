@@ -22,6 +22,18 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  address:{
+    type:String,
+  },
+  profileimg:{
+    type:String
+  },
+  city:{
+    type:String
+  },
+  state:{
+    type:String
   }
 })
 

@@ -47,7 +47,7 @@
         color: #42ec0a;
 
     }
-   
+
     img{
         width: 25%;
         height: 180px;
@@ -101,8 +101,8 @@
         height: 60px;
 
         svg{
-          height: 50px;  
-          width: 30px;    
+          height: 50px;
+          width: 30px;
         }
     }
 }
@@ -142,7 +142,7 @@
     }
     button{
         width: 66px;
-   
+
     }
 }
 
@@ -161,4 +161,20 @@
 }
 .profilesetingsForms{
     width: 560px;
+}
+.addres{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #ccc;
+}
+.pswrd{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: wrap;
+}
+.passinps{
+  display: flex;
+  justify-content: space-evenly;
 }
