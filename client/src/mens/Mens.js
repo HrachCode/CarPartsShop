@@ -80,7 +80,7 @@ import {withRouter} from 'react-router-dom'
                this.setState({products:data.data})
 
             }).catch(err=>{
-                console.log(err);
+                console.log(err)
 
             })
         }
