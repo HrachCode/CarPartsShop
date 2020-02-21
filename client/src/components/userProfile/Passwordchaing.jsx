@@ -68,7 +68,10 @@ class Passubdate extends React.Component{
     return (
     <div className="passinps">
       <div className="passDesc">
-          <span>password</span>
+          <h2>password</h2>
+          <span>you can change your password here</span>
+          <hr/>
+          <span>enter new password and repeat</span>
       </div>
       <div id="inputs">
         <Form>

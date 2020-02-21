@@ -29,14 +29,14 @@ mongoose
     mongoURI, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
-      useFindAndModify: true,
+      useFindAndModify: false,
+
     }
   )
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err))
   
 app.use(cors())
-app.use(morgan('dev'));
 app.use('/cars',Filters)
 app.use('/trucs',womenFlter)
 app.use('/users', Users)

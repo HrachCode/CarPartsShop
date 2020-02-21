@@ -84,8 +84,6 @@ hendlClick = (e)=>{
 
   const userSetingsData = {
     first_name : this.state.name,
-    newpassword: this.state.newpassword,
-    Password : this.state.Password,
     address : this.state.address,
     phone : this.state.Fonnumber,
     profileimg : img,
@@ -93,15 +91,10 @@ hendlClick = (e)=>{
     state:this.state.state,
     img:img,
     mail:this.props.user.user[0].email
+  };
+    axios.post('users/usersetingUbdate',{user:userSetingsData})
 
-  }
-  if(false){
-      axios.post('users/usersetingUbdate',{user:userSetingsData})
-      console.log(userSetingsData,this.props.user);
-
-  }
-
-}
+};
        render(){
 
         return (

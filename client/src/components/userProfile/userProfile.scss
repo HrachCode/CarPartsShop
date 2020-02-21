@@ -172,6 +172,7 @@
     display: flex;
     justify-content: space-evenly;
     flex-flow: wrap;
+    margin-top: 25px;
 }
 .passinps{
   display: flex;
@@ -180,6 +181,11 @@
 }
 .passDesc{
    width: 25%;
+
+    span{
+        font-size: large;
+        color:darkcyan;
+    }
 }
 #inputs{
     width: 40%;

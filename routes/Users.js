@@ -98,30 +98,37 @@ users.get('/profile', (req, res) => {
       res.send('error: ' + err)
     })
 })
-users.post('/usersetingUbdate', (req, res) => {
-  User.findOne({
-    email:req.body.user.mail
-  }).then(user=>{
-    let passwordValid = '';
-    console.log(req.body.user.Password,req.body.user.newpassword);
-    console.log(req.body);
-    
-    if(req.body.user.Password){
-     
-      
-      if(sha256(req.body.user.Password) !== user.password){  
-        console.log(2);
-            
-          return res.status(400).json({message:'password is invalid'})
-      }else{
-          console.log('ok');          
-      }
+users.post('/usersetingUbdate',async (req, res) => {
+    let user = { email: req.body.user.mail};
+    const userUpdate = { name: "Pizza Face" };
+    try { user = await new Promise( ( resolve, reject ) => {
+        User.findOneAndUpdate( { email: req.body.user.mail }, { $set: { first_name: "Test" } }, {  new: true },
+            ( error, obj ) => { if( error ) { console.error( JSON.stringify( error ) );
+              return reject( error ); }
+              resolve(   console.log(obj) );
+        });
+    })
     }
-    
-  })
-     
-     
-  
+              catch( error ) { /* set the world on fire */ }
+    // User.findOne({
+  //   email:req.body.user.mail
+  // }).then(user=>{
+
+      // if(req.body.user.Password){
+    //   if(sha256(req.body.user.Password) !== user.password){
+    //     console.log(2);
+    //       return res.status(400).json({message:'password is invalid'})
+    //   }else{
+    //       console.log('ok');
+    //   }
+    // }
+
+  // })
+
+
+    // User.findOneAndUpdate({ email: req.body.user.mail }, { $set: { first_name: "Naomi" } }, { new: true }, function(err, doc) {
+    //     console.log(doc)
+    // });
 })
 
 module.exports = users
