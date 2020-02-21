@@ -26,10 +26,10 @@ import {withRouter} from 'react-router-dom'
         gender: 'mens'
 
     }
-    
+
     componentDidMount(){
         setProduct(`stok/menproduct`,"GET")
-            .then(body =>{                
+            .then(body =>{
                 this.setState({products:body.reverse()},)
                 this.getProduct(body)
 
@@ -55,8 +55,17 @@ import {withRouter} from 'react-router-dom'
      };
      showaparts = item => {
         console.log(this.props.history);
-        
+
         this.props.history.push(`/cars/${item._id}`)
+    }
+    bigFilter = data => {
+       if(!data.data.message){
+
+        this.setState({products:data.data.parts})
+      }else{
+        alert(data.data.message)
+      }
+
     }
     findAndFilter = (data)=>{
         if(!data.carType){
@@ -67,20 +76,20 @@ import {withRouter} from 'react-router-dom'
                 if(data.data.length === 0){
                     return alert('not finde')
                 }
-            
+
                this.setState({products:data.data})
-                
+
             }).catch(err=>{
                 console.log(err);
-                
-            })   
-        }         
-                
+
+            })
+        }
+
     }
 
     render() {
-     
-      
+
+
         if(this.state.loading) {
             return <Spiner />
         }
@@ -102,7 +111,9 @@ import {withRouter} from 'react-router-dom'
                             bigger={'Bigger Choice'}
                             colors={'More Colors to Choose'}
                             backmoney={'Money Back Guaranteed'}
-                            findAndFilter= {this.findAndFilter}
+                            findAndFilter= {this.findAndFilter
+                            }
+                            bigFilter = {this.bigFilter}
 
                 />
                 <div className="container">
@@ -124,23 +135,23 @@ import {withRouter} from 'react-router-dom'
                                                    : null}
                                            <div className={'mej'}>
                                               <div className={'adstitle'}>
-                                           
+
                                                  <p >{item.carType} {item.carModel} {item.carMator} {item.carYear}y.  {item.price}$ </p>
                                                             <h3 className="userData">   {item.email}      {item.first_name}</h3>
-                                   
+
                                                  <span>{item.textInformation}</span>
-                                   
+
                                               </div>
-                                   
+
                                            </div>
-                                   
+
                                         </div>
-                                   
+
                                      </div>
 
                                     )
                                 })}
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>

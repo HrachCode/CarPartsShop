@@ -210,9 +210,7 @@ export default class FilterWear extends Component {
             inpVal: e.target.value
         })
     }
-    klor=()=>{
 
-    }
     btnCars =(e)=>{
        this.state.car1  = this.state.cars.find(f=> e.target.value == f.id)
         this.setState({
@@ -221,7 +219,7 @@ export default class FilterWear extends Component {
             btnChangeYear:false,
             btnMot:false
         })
-       
+
 
     }
     btnModel = (k)=>{
@@ -240,7 +238,7 @@ export default class FilterWear extends Component {
         })
     }
 
-   
+
     sortby = () => {
        this.state.car.carType = this.state.car1.carName
         this.state.car.carModel = this.state.modCar.modelCar
@@ -257,6 +255,7 @@ export default class FilterWear extends Component {
     }
 
     render() {
+
         return(
             <div>
                 <div className="container_part">
@@ -334,7 +333,7 @@ export default class FilterWear extends Component {
                                 {/*<Compare />*/}
                                 {/*<Sliderfitler />*/}
                                 {/*<Colections colect={this.props.colect} />*/}
-<SpareParts />
+                                  <SpareParts bigFilter={this.props.bigFilter}/>
                             </div>
                         </div>
                     </div>
