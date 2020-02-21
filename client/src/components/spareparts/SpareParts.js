@@ -8,12 +8,12 @@ export default ({bigFilter}) => {
   const [part, setPart] = useState([
       {id: 0, img: 'https://www.autocompas.ru/upload/home/sections/section15.png', title: 'EXTERNAL ENGINE', content: ['Starter Wear Sensor','Brake Pads', 'Thermostat', 'Idler puley', 'Fuel poump', ]},
       {id: 1, img: 'https://cdn.autoteiledirekt.de/thumb/assets/direkt/ersatz_categories/png/100x100/9.png', title: 'Brake System', content: ['Belt', 'Brake Discs', 'Kit Belt', 'Serpentin Belt', 'Brake']},
-      {id: 2, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSiLGfNseSs1X-JdbJpF6Ia-kZXaT2TbSDMsV1-jdl8Z8y4O27E', title: 'Brake System', content: ['Duralast Wheel', 'Tie Rod End', 'Stirring Pomp', 'Line Hose', 'Control Arm']},
+      {id: 2, img: 'https://virap10.s3.ap-south-1.amazonaws.com/%D5%BF%D5%A5%D5%BD%D5%BF/Untitled-2.png', title: 'Brake System', content: ['Duralast Wheel', 'Tie Rod End', 'Stirring Pomp', 'Line Hose', 'Control Arm']},
       {id: 3, img: 'https://cdn.autoteiledirekt.de/thumb/assets/direkt/ersatz_categories/png/100x100/3.png', title: 'TIRE AND WHEEL', content: ['Alignament', 'Steering Gear', 'Traction Bar', 'Bushings', 'Lod Leving Kit']},
       {id: 8, img: 'https://www.autocompas.ru/upload/home/sections/section7.png', title: 'Brake System', content: ['STEERING', 'Brake Discs', 'Brake Calipers', 'Brake Hose', 'Brake Pad Wear Sensor']},
       {id: 4, img: 'https://cdn.autoteiledirekt.de/thumb/assets/direkt/ersatz_categories/png/100x100/2.png', title: 'SUSPENSION', content: ['Duralast Brake Rotor', 'Bracketed Brake Caliper', 'Brake Drum', 'Brake Booster', 'Master Cilinder']},
       {id: 5, img: 'https://www.autocompas.ru/upload/home/sections/section1.png', title: 'TRACTION CONTROL', content: ['Duralast Brake Rotor', 'Bracketed Brake Caliper', 'Brake Drum', 'Brake Booster', 'Master Cilinder']},
-      {id: 9, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTFDYrLvTVtKd-8jT4z1dDgafPXq-UJKncCLznTzA8AB3ls-xEU', title: 'TRACTION CONTROL', content: ['Duralast Brake Rotor', 'Bracketed Brake Caliper', 'Brake Drum', 'Brake Booster', 'Master Cilinder']},
+      {id: 9, img: 'https://virap10.s3.ap-south-1.amazonaws.com/%D5%BF%D5%A5%D5%BD%D5%BF/Untitled-1.png', title: 'TRACTION CONTROL', content: ['Duralast Brake Rotor', 'Bracketed Brake Caliper', 'Brake Drum', 'Brake Booster', 'Master Cilinder']},
   ])
 
 const hendlClick = async k=>{
