@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { UploadField } from "@navjobs/upload";
-import { Button } from "antd";
-// import UploadFiles from './material Ui/UploadFiles'
+import Particls from './material UI/Particlse'
 import {sendData} from '../UserFunctions'
 
  class Adminlogin extends Component{
@@ -59,18 +57,7 @@ import {sendData} from '../UserFunctions'
         return (
           <div>
                
-          <UploadField
-            onFiles={this.onImgSubmit}
-            containerProps={{
-              className: "chat-input__actions-upload-btn"
-            }}
-            uploadProps={{
-              accept: ".jpg,.jpeg,.png,.gif,.bmp",
-              multiple: "multiple"
-            }}
-          >
-            <Button type="link" shape="circle" icon="camera" />
-          </UploadField>
+         <Particls />
           <div className="allImgWrap">
           {this.state.img.length?this.state.img.map(item=>{
             
