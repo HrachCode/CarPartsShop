@@ -6,6 +6,14 @@ const path = require('path')
 const uuidv4 = require ( 'uuid/v4' ) 
 const verifi = require('../middlwere/outorisation')
 const Avds = require('../models/Advertisements')
+const getenv = require('getenv');
+var cloudinary = require('cloudinary').v2;
+
+cloudinary.config({ 
+  cloud_name: 'virap10', 
+  api_key: '718528185693492', 
+  api_secret: 'A8D__TAvChlwtt21dntzaSb9u7E' 
+});
 
 const rs = () =>
   Math.random()
@@ -36,31 +44,30 @@ const upload = multer({
     cb(null, true);
   }
 })
-route.post ('/imgDownload',upload.array('imgCollection', 6), (req, res,err) => {
-  console.log(req.files,'olla');
-  
-  let error = '';
-    if (err) {
-      if (err.code === 'LIMIT_FILE_SIZE') {
-        error = 'Картинка не более 2mb!';
-      }
-      if (err.code === 'EXTENTION') {
-        error = 'Только jpeg и png!';
-      }
+// route.post ('/imgDownload',upload.array('imgCollection', 6), (req, res,err) => {
+ 
+//   let error = '';
+//     if (err) {
+//       if (err.code === 'LIMIT_FILE_SIZE') {
+//         error = 'Картинка не более 2mb!';
+//       }
+//       if (err.code === 'EXTENTION') {
+//         error = 'Только jpeg и png!';
+//       }
     
-    }
-    const reqFiles = [];
+//     }
+//     const reqFiles = [];
     
-    for (var i = 0; i < req.files.length; i++) {
-        reqFiles.push(req.files[i].filename)
-    }
-  res.json({
-    ok: !error,
-    error,
-    filePath: req.files,
-    fileName: reqFiles
-  });
-});
+//     for (var i = 0; i < req.files.length; i++) {
+//         reqFiles.push(req.files[i].filename)
+//     }
+//   res.json({
+//     ok: !error,
+//     error,
+//     filePath: req.files,
+//     fileName: reqFiles
+//   });
+// });
 route.post('/good', (req, res) => {
  
     const userData = {
@@ -401,5 +408,22 @@ route.post('/deletProduct',verifi,(req,res)=>{
    
   })
 })
+route.post ('/imgDownload', (req, res) => {
+  console.log('ll');
+  
+  console.log(req.files);
+  // cloudinary.uploader.upload(req.files[0], { tags: 'basic_sample' })
+  // .then(function (image) {
+   
+  //   console.log("* " + image.public_id);
+  //   console.log("* " + image.url);
+  // })
+  // .catch(function (err) {
+    
+  //   console.log("** File Upload (Promise)");
+  //   if (err) { console.warn(err); }
+  // });
+
+});
 
 module.exports = route;

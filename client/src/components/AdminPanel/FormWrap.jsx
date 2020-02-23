@@ -228,10 +228,12 @@ export default class AddAnnouncment extends Component{
             return  this.setings.apdateProduct = 'null;'
         }
         const formData = new FormData()
-        for (const key of Object.keys(this.state.fileSelected)) {
-            console.log(this.state.fileSelected[key]);
-            formData.append('imgCollection', this.state.fileSelected[key])
-        }
+        // for (const key of Object.keys(this.state.fileSelected)) {
+        //     console.log(this.state.fileSelected[key]);
+        //     formData.append('imgCollection', this.state.fileSelected[key])
+        // }
+        console.log(formData);
+        
         sendData('stok/imgDownload',formData,{})
             .then(respons=>{
                 this.setState({img:respons.data.fileName})

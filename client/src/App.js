@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState,useEffect } from "react"
 import { BrowserRouter as Router, Route,Redirect, Switch } from 'react-router-dom'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
@@ -14,13 +14,15 @@ import FooterTop from './components/footer/footertop/FooterTop'
 import Shop from './shop/Shop'
 import Context from './components/contextProvider'
 import Apart from "./contact/apart/Apart";
-// import 'antd/dist/antd.css'
+import { Lines } from 'react-preloaders';
 function App(){
     let itemsArray = localStorage.getItem('cartId') ? JSON.parse(localStorage.getItem('cartId')) : [];
     let [shopProduct, setStates] = useState({itemsArray:itemsArray,key:1})
     let [isLogined, setlogin] = useState(false)
-
-
+    let [loading, setloading] = useState(true);
+    useEffect(e=>{
+        setloading(false)
+    },[])
 
 
     const setitem = (item)=>{
@@ -51,17 +53,20 @@ console.log(arr);
         localStorage.removeItem('itemtId')
        
       }
-console.log(isLogined);
+
 
     return (
+       
           <Context.Provider value = {setitem}>   
         <Router>
+        <Lines customLoading={loading} />
             <div>
+           
                 <header key={shopProduct.key}>
                     <Header shopProduct={shopProduct.itemsArray } deletItem={deletItem} islogin={islogin} isLogined={isLogined}/>
                 </header>
                 <Switch>
-                    <Route exact path='/' render = {()=><Home setitem={setitem} />} />
+                    <Route exact path='/' render = {()=><Home setitem={setitem} setloading={setloading}/>} />
                     <Route exact path="/admin"  render = {()=><Admin  adminExit={adminExit} />} />
                     <Route path='/about' component={About} />
                     <Route path='/my'  render = {()=><UserProfile  shopProduct={shopProduct.itemsArray } />}/>

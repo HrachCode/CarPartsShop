@@ -28,8 +28,10 @@ import {sendData} from '../UserFunctions'
  
         formData.append('imgCollection', this.state.fileSelected[key])
     }
-   
+    console.log(formData);
     sendData('stok/imgDownload',formData,{ headers: {
+    
+      
       "Content-Type": "multipart/form-data"
     }})
         .then(respons=>{

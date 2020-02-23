@@ -18,7 +18,7 @@ import {withRouter} from 'react-router-dom'
  class Mens extends Component {
     state = {
         wearTitle: 'CARS',
-
+        loading:true,
         products: [],
         loading: true,
         QuickCards: '',
@@ -61,6 +61,7 @@ import {withRouter} from 'react-router-dom'
        if(!data.data.message){
 
         this.setState({products:data.data.parts})
+       
       }else{
         alert(data.data.message)
       }
@@ -121,6 +122,7 @@ import {withRouter} from 'react-router-dom'
                         <div className={'shopCartscontainer'}>
                            
                             <div className={'carts'}>
+                               
                                 <Pagination arr={this.state.products} showaparts={this.showaparts}/>
                                </div>
                         </div>

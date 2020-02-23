@@ -19,6 +19,7 @@ class Shopcart extends React.Component {
     componentDidMount(){
         setProduct(`stok/${this.state.query}`,"GET")
             .then(body =>{
+                this.props.setloading(false)
                 this.getProduct(body.reverse())
             })
             .catch(err => console.log(err))

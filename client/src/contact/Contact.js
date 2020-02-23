@@ -1,10 +1,22 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import Wear from "../wear/Wear";
 import './Contact.scss'
+import { Lines } from 'react-preloaders';
 
 export default ()=>{
+    const [loading,setloading] = useState(true);
+    useEffect(()=>{
+        setloading(false)
+    },[])
+    if(loading){
+        return <React.Fragment>
+        <Lines customLoading={loading} time={2800} />
+        </React.Fragment>
+    }
     return(
+     
         <div>
+        
             <Wear wear={'Contact'}/>
            
 

@@ -10,7 +10,7 @@ import pic2 from '../components/slider/slideimg/banner2.jpg'
 import pic3 from '../components/slider/slideimg/banner4.jpg'
 import pic4 from '../components/slider/slideimg/banner5.jpg'
 import {withRouter} from 'react-router-dom'
-import Apart from "../contact/apart/Apart";
+import Pagination from '../components/AdminPanel/material UI/Pagination'
 import pic from '../empty/emptydatark.jpg'
 
 
@@ -57,8 +57,7 @@ class Womens extends Component {
 
 
     showaparts = item => {
-        console.log(this.props.history);
-        
+      
         this.props.history.push(`/trucs/${item._id}`)
     }
     render() {
@@ -88,32 +87,8 @@ class Womens extends Component {
                         <QuickView setitem = {this.props.setitem} BtnQuickView={this.BtnQuickView} QuickCards={this.state.QuickCards}/>
                         <div className={'shopCartscontainer'}>
                             <div className={'carts'}>
-                                {this.state.products.map((item,index)=>{
-                                    return (
-                                        <div key={index} className={'adver'} onClick={this.showaparts.bind(this, item)} >
-                                        <div className={'indiv'}>
-                                                          {item.img.length > 1 ? <img src={`./img/${item.img[0]}`} alt=""/> : item.img.length === 0 ?
-                                               <img src={pic} alt=""/> : item.img.length === 1 ? item.img.map((e,i)=>{
-                                                     return(
-                                                       <img key={i} onClick={()=>console.log(e)} src={`./img/${e}`} alt=""/>
-                                                    )})
-                                                   : null}
-                                           <div className={'mej'}>
-                                              <div className={'adstitle'}>
-                                                 <p >{item.carType} {item.carModel} {item.carMator} {item.carYear}y.  {item.price}$ </p>
-                                                 <h3 className="userData">   {item.email}      {item.first_name}</h3>
-                                                 <span>{item.textInformation}</span>
-                                   
-                                              </div>
-                                   
-                                           </div>
-                                   
-                                        </div>
-                                   
-                                     </div>
-
-                                    )
-                                })}
+                            <Pagination arr={this.state.products} showaparts={this.showaparts}/>
+                                       
                             </div>
                         </div>
                     </div>

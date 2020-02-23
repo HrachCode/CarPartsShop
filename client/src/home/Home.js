@@ -5,14 +5,14 @@ import Middle from '../components/middle/Middle';
 import Fixed from '../components/fixed/Fixed'
 import ShopCart from'../components/shopCarts/Lending'
 
-export default ({setitem}) => {
+export default ({setitem,setloading}) => {
    
     return(
         <div>
             <Slider/>
             <SliderBottom/>
             <Middle />
-            <ShopCart setitem={setitem}/>
+            <ShopCart setitem={setitem} setloading={setloading}/>
             <Fixed />
 
         </div>
