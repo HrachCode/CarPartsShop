@@ -66,8 +66,8 @@ class Shopcart extends React.Component {
         if(this.state.loading){
             return <Spiner />
         }
-        console.log(this.state.products);
         
+
         const ad = ["Cars", "Trucks", "Motorcycles"];
 
         return (

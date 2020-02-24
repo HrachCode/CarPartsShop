@@ -228,12 +228,12 @@ export default class AddAnnouncment extends Component{
             return  this.setings.apdateProduct = 'null;'
         }
         const formData = new FormData()
-        // for (const key of Object.keys(this.state.fileSelected)) {
-        //     console.log(this.state.fileSelected[key]);
-        //     formData.append('imgCollection', this.state.fileSelected[key])
-        // }
+        for (const key of Object.keys(this.state.fileSelected)) {
+            console.log(this.state.fileSelected[key]);
+            formData.append('imgCollection', this.state.fileSelected[key])
+        }
         console.log(formData);
-        
+
         sendData('stok/imgDownload',formData,{})
             .then(respons=>{
                 this.setState({img:respons.data.fileName})
@@ -316,7 +316,7 @@ export default class AddAnnouncment extends Component{
             adder:this.state.adder
 
         })
-        
+
 
         this.setState({
             car1:'',
@@ -353,7 +353,7 @@ export default class AddAnnouncment extends Component{
                     .then(response=>{
                         alert('yor advertisements registered')
                         console.log(response);
-                        
+
                         this.setState({car:[]})
                         // console.log(this.props.fetchPosts(decoded))
                     })
@@ -446,10 +446,8 @@ export default class AddAnnouncment extends Component{
                     <textarea className={'form-control'} value={this.state.textArea} onChange={e=>this.setState({textArea:e.target.value})} name="" id="" cols="30" rows="5"></textarea>
                 </div>
                 <div className={'add_photo'}>
-                    <p >Add Photo</p>
-                    <ImgLoad onImgSubmit={this.onImgSubmit} onChangeimg={this.setings}/>
-                    {/*<PicturesWall/>PicturesWall*/}
-                    {/*<button onClick={()=>console.log(this.state.userProfile,'olla')}>okkkk</button>*/}
+                    // <p >Add Photo.</p>
+
 
                 </div>
                 <div className={'addann'} >
