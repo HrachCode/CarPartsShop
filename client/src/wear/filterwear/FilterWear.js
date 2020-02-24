@@ -333,7 +333,7 @@ export default class FilterWear extends Component {
                                 {/*<Compare />*/}
                                 {/*<Sliderfitler />*/}
                                 {/*<Colections colect={this.props.colect} />*/}
-                                  <SpareParts bigFilter={this.props.bigFilter}/>
+                                  <SpareParts bigFilter={this.props.bigFilter} scroll={this.props.scroll}/>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,14 @@
+.makeStyles-root-1{
+  header{
+    width: 70%;
+    margin: 0 auto;
+  }
+}
 .teqniques {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  width: 70%;
   div {
     margin-top: 15px;
   }
@@ -10,7 +17,7 @@
     letter-spacing: 2px;
   }
   select {
-    width: 20vw;
+    width: 17vw;
   }
 }
 .formData {
@@ -72,4 +79,17 @@
     position: absolute;
     color: brown;
 
+}
+.new_used{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  //align-items: center;
+  justify-content: center;
+  .new_used_radio{
+    display: flex;
+    flex-direction: column;
+    margin: 5vh;
+  }
 }

@@ -16,15 +16,22 @@ import {withRouter} from 'react-router-dom'
 
 
  class Mens extends Component {
-    state = {
-        wearTitle: 'CARS',
-        loading:true,
-        products: [],
-        loading: true,
-        QuickCards: '',
-        menswear: 'Mens',
-        gender: 'mens'
+    constructor(props) {
+        super(props);
+            this.scrollRef = React.createRef();
+        this.state = {
+            wearTitle: 'CARS',
+            loading:true,
+            products: [],
+            loading: true,
+            QuickCards: '',
+            menswear: 'Mens',
+            gender: 'mens'
+        }
+    }
 
+    slcrollClickHandler = () =>{
+        window.scrollTo({behavior:'smooth',top:this.scrollRef.current.offsetTop})
     }
 
     componentDidMount(){
@@ -114,12 +121,13 @@ import {withRouter} from 'react-router-dom'
                             findAndFilter= {this.findAndFilter
                             }
                             bigFilter = {this.bigFilter}
+                            scroll = {this.slcrollClickHandler}
 
                 />
                 <div className="container">
                     <div className={'cardwears'}>
                         <QuickView setitem = {this.props.setitem} BtnQuickView={this.BtnQuickView} QuickCards={this.state.QuickCards}/>
-                        <div className={'shopCartscontainer'}>
+                        <div className={'shopCartscontainer'} ref={this.scrollRef}>
                            
                             <div className={'carts'}>
                                
