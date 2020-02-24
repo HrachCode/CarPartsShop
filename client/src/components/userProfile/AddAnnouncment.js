@@ -305,17 +305,28 @@ export default class AddAnnouncment extends Component{
     }
 
     regionHandler = (e) =>{
-        var a = this.state.region;
-        a.push(e.target.value)
+       
+            var b = e.target.options[e.target.selectedIndex].text
+            var a = this.state.region;
+            a.push(e.target.value,b)
+            this.setState({
+                region:a
+            })
+        
+        if(this.state.region.length > 0){
+            this.state.region.splice(0, this.state.region.length) 
+            a.push(e.target.value,b)
+            this.setState({
+                region:a
+            })
+        }
+        
 
-        a.push(this.state.p)
-        this.setState({
-            region:a
-        })
-        console.log(this.state.region)
+       console.log(this.state.region)
+        
     }
     
-
+   
     newHandler = () =>{
         this.setState({
             new:'new',
@@ -344,6 +355,7 @@ export default class AddAnnouncment extends Component{
             details:this.state.details,
             new:this.state.new,
             used:this.state.used,
+            region:this.state.region
 
         })
        
@@ -397,6 +409,7 @@ export default class AddAnnouncment extends Component{
                  }
     }
 
+ 
     render() {
         return(
             <div className={'teqniques'}>
@@ -492,7 +505,7 @@ export default class AddAnnouncment extends Component{
                    
 
                 </div>
-                <Region regionHand = {this.regionHandler } city={this.region}/>
+                <Region regionHand = {this.regionHandler } forms={this.forms} city={this.city}/>
                 <div className={'addann'} >
                     <input   type='submit' value={'Add Announcment'} onClick={this.btnADD}/>
                 </div>
