@@ -6,7 +6,7 @@ const path = require('path')
 const uuidv4 = require ( 'uuid/v4' ) 
 const verifi = require('../middlwere/outorisation')
 const Avds = require('../models/Advertisements')
-const getenv = require('getenv');
+// const getenv = require('getenv');
 var cloudinary = require('cloudinary').v2;
 
 cloudinary.config({ 
