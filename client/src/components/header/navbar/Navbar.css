@@ -227,7 +227,7 @@
     display: none;
     width: 300%;
     background-color: white;
-    z-index: 5;
+    z-index: 1999;
     position: absolute;
     top: 100%;
     right: -116%;

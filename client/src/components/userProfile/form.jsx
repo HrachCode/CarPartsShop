@@ -118,7 +118,7 @@ export default function ScrollableTabsButtonAuto() {
                    aria-label="scrollable auto tabs example"
                >
                  <Tab label="Your Announcments" {...a11yProps(0)} />
-                 <Tab label="Add Announcment" {...a11yProps(1)} />
+                 <Tab label="Add Product" {...a11yProps(1)} />
                  <Tab label="profile setings" {...a11yProps(2)} />
 
                </Tabs>

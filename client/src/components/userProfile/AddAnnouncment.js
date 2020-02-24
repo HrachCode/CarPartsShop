@@ -218,6 +218,8 @@ export default class AddAnnouncment extends Component{
             {id:6,DetailName:'accessories'},
         ],
         details:'',
+        new:'',
+        used:''
 
     }
     onImgSubmit = (e)=>{
@@ -299,6 +301,19 @@ export default class AddAnnouncment extends Component{
         })
     }
 
+    newHandler = () =>{
+        this.setState({
+            new:'new',
+            used:''
+        })
+    }
+    usedHandler = () =>{
+        this.setState({
+            used:'used',
+            new:''
+        })
+    }
+
     btnADD = () => {
         this.state.car.push({
             id:Date.now(),
@@ -310,7 +325,9 @@ export default class AddAnnouncment extends Component{
             textInformation:this.state.textArea,
             price:this.state.priceVal,
             img:this.state.img,
-            details:this.state.details
+            details:this.state.details,
+            new:this.state.new,
+            used:this.state.used
         })
        
       
@@ -437,6 +454,16 @@ export default class AddAnnouncment extends Component{
                     <p>Add Price</p>
                     <div className="inp_size">
                         <input className={'form-control text-center'} type="text" value={this.state.priceVal} onChange={e=>this.setState({priceVal:e.target.value})}/>
+                    </div>
+                </div>
+                <div className={'new_used'}>
+                    <div className={'new_used_radio'}>
+                        <label htmlFor="">New</label>
+                        <input type="radio" name={'pp'} onClick={this.newHandler}/>
+                    </div>
+                    <div className={'new_used_radio'}>
+                        <label htmlFor="">Used</label>
+                        <input type="radio" name={'pp'} onClick={this.usedHandler}/>
                     </div>
                 </div>
 
