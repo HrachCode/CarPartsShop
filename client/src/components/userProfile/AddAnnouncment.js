@@ -3,6 +3,7 @@ import './AddAnnouncment.scss'
 import ImgLoad from '../AdminPanel/ImgLoad'
 import {sendData} from '../UserFunctions'
 import jwt_decode from 'jwt-decode'
+import Region from "./Region";
 
 
 export default class AddAnnouncment extends Component{
@@ -219,7 +220,9 @@ export default class AddAnnouncment extends Component{
         ],
         details:'',
         new:'',
-        used:''
+        used:'',
+        region:[],
+        p:''
 
     }
     onImgSubmit = (e)=>{
@@ -301,6 +304,18 @@ export default class AddAnnouncment extends Component{
         })
     }
 
+    regionHandler = (e) =>{
+        var a = this.state.region;
+        a.push(e.target.value)
+
+        a.push(this.state.p)
+        this.setState({
+            region:a
+        })
+        console.log(this.state.region)
+    }
+    
+
     newHandler = () =>{
         this.setState({
             new:'new',
@@ -313,6 +328,7 @@ export default class AddAnnouncment extends Component{
             new:''
         })
     }
+
 
     btnADD = () => {
         this.state.car.push({
@@ -327,7 +343,8 @@ export default class AddAnnouncment extends Component{
             img:this.state.img,
             details:this.state.details,
             new:this.state.new,
-            used:this.state.used
+            used:this.state.used,
+
         })
        
       
@@ -378,8 +395,6 @@ export default class AddAnnouncment extends Component{
                            })
                           
                  }
-                
-       
     }
 
     render() {
@@ -477,6 +492,7 @@ export default class AddAnnouncment extends Component{
                    
 
                 </div>
+                <Region regionHand = {this.regionHandler } city={this.region}/>
                 <div className={'addann'} >
                     <input   type='submit' value={'Add Announcment'} onClick={this.btnADD}/>
                 </div>
