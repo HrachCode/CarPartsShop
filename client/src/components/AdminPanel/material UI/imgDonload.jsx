@@ -32,7 +32,13 @@ class PicturesWall extends React.Component {
     });
   };
 
-  handleChange = ({ fileList }) => this.setState({ fileList });
+  handleChange = ({ fileList }) => {
+      console.log(fileList);
+      
+    return this.setState({ fileList })
+  };
+ 
+  
   ll = ()=>{
     const formData = new FormData()
     for (const key of Object.keys(this.state.fileList)) {

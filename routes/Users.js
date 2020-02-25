@@ -130,5 +130,14 @@ users.post('/usersetingUbdate',async (req, res) => {
     //     console.log(doc)
     // });
 })
+users.post('./file',(req,res)=>{
+  const multer = require("multer");
+  const storage = multer.memoryStorage();
+  const uploader = multer({ storage });
+  console.log(multer.single("file"));
+  
+  console.log('LLLLLLLLLLLLLLLLLLLLLLLLLL');
+  
+})
 
 module.exports = users

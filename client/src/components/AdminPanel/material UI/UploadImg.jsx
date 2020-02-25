@@ -32,14 +32,23 @@ class PicturesWall extends React.Component {
     if (!file.url && !file.preview) {
       file.preview = await getBase64(file.originFileObj);
     }
-
+    
+    
+      console.log(file.url);
+      console.log(file);
+      
+      
     this.setState({
       previewImage: file.url || file.preview,
       previewVisible: true,
     });
   };
 
-  handleChange = ({ fileList }) => this.setState({ fileList });
+  handleChange = ({ fileList }) => {
+    console.log(fileList);
+    
+    return this.setState({ fileList })
+  };
 
   render() {
     const { previewVisible, previewImage, fileList } = this.state;

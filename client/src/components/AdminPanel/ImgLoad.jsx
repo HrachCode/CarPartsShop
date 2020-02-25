@@ -1,12 +1,46 @@
 import React from 'react';
 import PicturesWall from './material UI/UploadImg'
-
+import { UploadField } from "@navjobs/upload";
+import { Button, Input } from "antd";
+import axios from 'axios'
 const ImgLoad = (props) => {
+  const upload = file => {
+        const formData = new FormData();
+        formData.append("file", file);
+        return axios.post("/users/file", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        });
+      }
 
+    const onImgSubmit = async (files) => {
+        for (let i = 0; i < files.length; i++){
+            const file = files[i];            
+               await upload(file).then(data=>{
+                   console.log(data);
+                   
+               })
+              
+
+        }
+    }
      return (
 
         <div className="">
             <div className="ImgLoadInp">
+            <UploadField
+            onFiles={onImgSubmit}
+            containerProps={{
+              className: "chat-input__actions-upload-btn"
+            }}
+            uploadProps={{
+              accept: ".jpg,.jpeg,.png,.gif,.bmp",
+              multiple: "multiple"
+            }}
+          >
+            <Button type="link" shape="circle" icon="camera" className="imgbtn"/>
+          </UploadField>
               <PicturesWall />
             <input type="file"  name="img" className="btn btn-outline-secondary custom-file-upload"
              onChange={props.onChangeimg.onChangeimg} style={{width:"100%"}} multiple/>
