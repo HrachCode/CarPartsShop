@@ -8,3 +8,17 @@ button{
 input{
   outline: none !important;
 }
+.teqniques div {
+  margin: 0;
+}
+.ant-upload-list-picture-card .ant-upload-list-item {
+  padding: 0;
+}
+.ant-upload.ant-upload-select-picture-card > .ant-upload  {
+  padding: 0;
+}
+
+.ImgLoadInp span {
+  display: flex;
+  flex-wrap: wrap;
+}
