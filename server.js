@@ -15,11 +15,11 @@ const path = require('path')
 const cors = require('cors')
 const morgan = require('morgan')
 const hendelError = require('./middlwere/errorhendeler')
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
     extended: false,
-  })
+  });
 )
 
 const mongoURI = process.env.MONGODB_URL || 'mongodb+srv://virap:erevan10@cluster0-vxh3h.mongodb.net/test?retryWrites=true&w=majority';
@@ -36,10 +36,10 @@ mongoose
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err))
   
-app.use(cors())
-app.use('/cars',Filters)
-app.use('/trucs',womenFlter)
-app.use('/users', Users)
+app.use(cors());
+app.use('/cars',Filters);
+app.use('/trucs',womenFlter);
+app.use('/users', Users);
 app.use('/stok', Goods)
 app.use('/avds',Avds)
 app.use('/filter',Filters)
