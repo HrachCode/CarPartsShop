@@ -9,7 +9,7 @@
     width: 100%;
     img {
       width: 150px;
-      height: 200px;
+      height: 100%;
 
     }
   }
@@ -113,6 +113,10 @@
 }
 .imgquick{
   position: relative;
+  height: 250px;
+  img {
+    width: 100%;
+  }
 }
 .imgquick:hover .quickdiv{
   top:80%;

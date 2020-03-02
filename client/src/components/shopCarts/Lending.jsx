@@ -86,7 +86,7 @@ class Shopcart extends React.Component {
                 </div>
                     <QuickView setitem = {this.props.setitem} BtnQuickView={this.BtnQuickView} QuickCards={this.state.QuickCards}/>
                 <div className={'shopCartscontainer'}>
-                    <div className={'Ccarts'}>
+                    <div className={'row'}>
                         {this.state.products.map((item,index)=>{
                             return (
                                 <div key={index} className={'shopCarts'}>
